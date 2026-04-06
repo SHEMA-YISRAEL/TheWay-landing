@@ -1,0 +1,167 @@
+---
+import type { Translations } from '../i18n/translations';
+
+interface Props {
+  t: Translations;
+  lang: 'es' | 'en';
+}
+
+const { t, lang } = Astro.props;
+const { footer } = t;
+const year = new Date().getFullYear();
+const homeHref = lang === 'es' ? '/' : '/en/';
+---
+<footer class="footer">
+  <div class="container">
+    <div class="top">
+      <div class="brand">
+        <a href={homeHref} class="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b28436" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+          <span>The Way</span>
+        </a>
+        <p>{footer.tagline[0]}<br />{footer.tagline[1]}</p>
+      </div>
+
+      <nav class="links" aria-label={lang === 'es' ? 'Navegación del pie de página' : 'Footer navigation'}>
+        <div class="link-group">
+          <span class="link-group-title">{footer.links.app.title}</span>
+          <a href="#features">{footer.links.app.features}</a>
+          <a href="#download">{footer.links.app.download}</a>
+          <a href="#">{footer.links.app.plans}</a>
+        </div>
+        <div class="link-group">
+          <span class="link-group-title">{footer.links.company.title}</span>
+          <a href="#">{footer.links.company.about}</a>
+          <a href="#">{footer.links.company.blog}</a>
+          <a href="#">{footer.links.company.contact}</a>
+        </div>
+        <div class="link-group">
+          <span class="link-group-title">{footer.links.legal.title}</span>
+          <a href="#">{footer.links.legal.privacy}</a>
+          <a href="#">{footer.links.legal.terms}</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="bottom">
+      <p>{footer.copyright.replace('{year}', String(year))}</p>
+      <p class="verse-footer">{footer.verseFooter}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: #2a2520;
+    color: rgba(253, 252, 251, 0.65);
+    padding: 64px 0 32px;
+  }
+
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 220px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #fdfcfb;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .brand p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .links {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .link-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .link-group-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fdfcfb;
+    opacity: 0.4;
+  }
+
+  .link-group a {
+    text-decoration: none;
+    font-size: 0.875rem;
+    color: rgba(253, 252, 251, 0.65);
+    transition: color 0.2s ease;
+  }
+
+  .link-group a:hover {
+    color: #b28436;
+  }
+
+  .bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .bottom p {
+    font-size: 0.8rem;
+  }
+
+  .verse-footer {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.8rem;
+    opacity: 0.5;
+    max-width: 420px;
+    text-align: right;
+  }
+
+  @media (max-width: 600px) {
+    .bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+    .verse-footer {
+      text-align: center;
+    }
+  }
+</style>

@@ -1,0 +1,154 @@
+---
+import type { Translations } from '../i18n/translations';
+
+interface Props {
+  t: Translations;
+  lang: 'es' | 'en';
+}
+const { t, lang } = Astro.props;
+const altLang = lang === 'es' ? 'en' : 'es';
+const altHref = lang === 'es' ? '/en/' : '/';
+const altLabel = lang === 'es' ? 'EN' : 'ES';
+---
+
+<header class="navbar">
+  <div class="container">
+    <a href={lang === 'es' ? '/' : '/en/'} class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+      </svg>
+      <span>The Way</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#features">{t.navbar.features}</a>
+      <a href="#scripture">{t.navbar.scripture}</a>
+      <a href="#download">{t.navbar.download}</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href={altHref} class="lang-toggle" aria-label={`Switch to ${altLang}`}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        {altLabel}
+      </a>
+      <a href="#download" class="cta-btn">{t.navbar.cta}</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(253, 252, 251, 0.92);
+    border-bottom: 1px solid var(--stroke-1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
+
+  .logo svg {
+    color: var(--gold);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--gold);
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--stroke-1);
+    background: transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .lang-toggle:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .cta-btn {
+    background: var(--gold);
+    color: #fdfcfb;
+    text-decoration: none;
+    padding: 9px 20px;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: background 0.2s ease, transform 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .cta-btn:hover {
+    background: var(--gold-hover);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 640px) {
+    .nav-links {
+      display: none;
+    }
+  }
+</style>
