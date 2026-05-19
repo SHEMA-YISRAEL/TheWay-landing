@@ -10,6 +10,8 @@ const { t, lang } = Astro.props;
 const { footer } = t;
 const year = new Date().getFullYear();
 const homeHref = lang === 'es' ? '/' : '/en/';
+const privacyHref = lang === 'es' ? '/privacy' : '/en/privacy';
+const termsHref = lang === 'es' ? '/terms' : '/en/terms';
 ---
 <footer class="footer">
   <div class="container">
@@ -40,8 +42,8 @@ const homeHref = lang === 'es' ? '/' : '/en/';
         </div>
         <div class="link-group">
           <span class="link-group-title">{footer.links.legal.title}</span>
-          <a href="#">{footer.links.legal.privacy}</a>
-          <a href="#">{footer.links.legal.terms}</a>
+          <a href={privacyHref}>{footer.links.legal.privacy}</a>
+          <a href={termsHref}>{footer.links.legal.terms}</a>
         </div>
       </nav>
     </div>

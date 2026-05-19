@@ -1,0 +1,260 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { en } from '../../i18n/translations';
+
+const t = en;
+const lang = 'en' as const;
+const lastUpdated = 'May 19, 2025';
+---
+
+<Layout
+  title="Privacy Policy — The Way"
+  description="Privacy policy for The Way app. How we handle your data and protect your privacy."
+  lang={lang}
+>
+  <Navbar t={t} lang={lang} />
+  <main class="privacy-page">
+    <div class="container">
+      <header class="page-header">
+        <p class="eyebrow">Legal</p>
+        <h1>Privacy <em>Policy</em></h1>
+        <p class="meta">Last updated: {lastUpdated}</p>
+      </header>
+
+      <div class="content">
+
+        <section>
+          <h2>1. Summary</h2>
+          <p>
+            <strong>The Way</strong> is a Bible app built with your privacy in mind.
+            We do not collect personally identifiable information. There are no user accounts,
+            no email registration, and no behavioral tracking. Your reading progress is saved
+            only on your device.
+          </p>
+          <div class="highlight-box">
+            <p>
+              <strong>Simply put:</strong> The Way does not know who you are. We don't have
+              your data and we don't want it.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2>2. Data we do <em>not</em> collect</h2>
+          <ul>
+            <li>Name, email address, or any account information</li>
+            <li>Geographic location</li>
+            <li>Browsing history or in-app behavior</li>
+            <li>Financial or payment data</li>
+            <li>Contacts, photos, microphone, or camera</li>
+          </ul>
+          <p>The app does not require registration or login to function.</p>
+        </section>
+
+        <section>
+          <h2>3. Data stored <em>locally</em> on your device</h2>
+          <p>
+            The Way saves the following data on your device using the operating system's
+            local storage (AsyncStorage):
+          </p>
+          <ul>
+            <li><strong>Reading progress:</strong> which paths you've completed and where you left off</li>
+            <li><strong>App preferences:</strong> language and appearance settings</li>
+          </ul>
+          <p>
+            This data never leaves your device. We do not transmit it, sync it to the cloud,
+            or have any access to it. If you uninstall the app, this data is permanently deleted.
+          </p>
+        </section>
+
+        <section>
+          <h2>4. Push notifications (Firebase Cloud Messaging)</h2>
+          <p>
+            The Way uses <strong>Firebase Cloud Messaging (FCM)</strong>, a Google service,
+            to send you optional notifications about new reflections and content. This involves:
+          </p>
+          <ul>
+            <li>
+              Firebase assigns an anonymous <em>device token</em> to your app installation.
+              This token contains no personal information.
+            </li>
+            <li>
+              The token is sent to our servers solely to deliver notifications to you.
+              We use it for no other purpose.
+            </li>
+            <li>
+              You can revoke notification permission at any time from your device settings.
+            </li>
+          </ul>
+          <p>
+            Firebase is operated by Google LLC. Their privacy policy applies to device
+            token processing:
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+              policies.google.com/privacy
+            </a>.
+          </p>
+        </section>
+
+        <section>
+          <h2>5. App content</h2>
+          <p>
+            All Bible content (texts, reflections, quizzes, devotionals) is stored directly
+            inside the app. No requests are made to external servers to display content.
+            The app works <strong>completely offline</strong>, except for the push notifications
+            described above.
+          </p>
+        </section>
+
+        <section>
+          <h2>6. Children's privacy</h2>
+          <p>
+            The Way is not directed at children under 13 and does not knowingly collect
+            information from minors. If you are a parent or guardian and believe your child
+            has provided personal information, contact us and we will delete it immediately.
+          </p>
+        </section>
+
+        <section>
+          <h2>7. Changes to this policy</h2>
+          <p>
+            If we modify this policy, we will update the date shown above and, for material
+            changes, notify you through the app. Continued use of The Way after changes
+            constitutes acceptance of the updated policy.
+          </p>
+        </section>
+
+        <section>
+          <h2>8. Contact</h2>
+          <p>
+            For privacy questions or requests, reach us at:
+          </p>
+          <p class="contact-email">
+            <a href="mailto:administracion@shemayisraelsrl.com">administracion@shemayisraelsrl.com</a>
+          </p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+  <Footer t={t} lang={lang} />
+</Layout>
+
+<style>
+  .privacy-page {
+    padding: 80px 0 100px;
+    min-height: 70vh;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .page-header {
+    margin-bottom: 56px;
+    border-bottom: 1px solid var(--stroke-1);
+    padding-bottom: 40px;
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--text-dark);
+    line-height: 1.15;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .meta {
+    font-size: 0.85rem;
+    color: var(--text);
+    opacity: 0.7;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    font-weight: 600;
+  }
+
+  h2 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--text);
+  }
+
+  ul {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  a {
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  a:hover {
+    color: var(--gold-hover);
+  }
+
+  .highlight-box {
+    background: var(--fill-2);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+  }
+
+  .highlight-box p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .contact-email {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+</style>
