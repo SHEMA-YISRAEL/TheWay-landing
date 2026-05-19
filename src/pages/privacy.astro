@@ -1,0 +1,263 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { es } from '../i18n/translations';
+
+const t = es;
+const lang = 'es' as const;
+const lastUpdated = '19 de mayo de 2025';
+---
+
+<Layout
+  title="Política de Privacidad — The Way"
+  description="Política de privacidad de The Way. Cómo manejamos tus datos y tu privacidad."
+  lang={lang}
+>
+  <Navbar t={t} lang={lang} />
+  <main class="privacy-page">
+    <div class="container">
+      <header class="page-header">
+        <p class="eyebrow">Legal</p>
+        <h1>Política de <em>Privacidad</em></h1>
+        <p class="meta">Última actualización: {lastUpdated}</p>
+      </header>
+
+      <div class="content">
+
+        <section>
+          <h2>1. Resumen</h2>
+          <p>
+            <strong>The Way</strong> es una aplicación bíblica diseñada para proteger tu privacidad.
+            No recopilamos información personal identificable. No hay cuentas de usuario,
+            no hay registro de correo, no hay seguimiento de comportamiento. El progreso de
+            lectura se guarda únicamente en tu dispositivo.
+          </p>
+          <div class="highlight-box">
+            <p>
+              <strong>En pocas palabras:</strong> The Way no sabe quién eres. No tenemos tus
+              datos y no los queremos.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2>2. Datos que <em>no</em> recopilamos</h2>
+          <ul>
+            <li>Nombre, correo electrónico o cualquier información de cuenta</li>
+            <li>Ubicación geográfica</li>
+            <li>Historial de navegación o comportamiento dentro de la app</li>
+            <li>Datos financieros o de pago</li>
+            <li>Contactos, fotos, micrófono o cámara</li>
+          </ul>
+          <p>La app no requiere registro ni inicio de sesión para funcionar.</p>
+        </section>
+
+        <section>
+          <h2>3. Datos almacenados <em>localmente</em> en tu dispositivo</h2>
+          <p>
+            The Way guarda en tu dispositivo, usando el almacenamiento local del sistema
+            operativo (AsyncStorage), los siguientes datos:
+          </p>
+          <ul>
+            <li><strong>Progreso de lectura:</strong> qué paths has completado y en qué pregunta vas</li>
+            <li><strong>Preferencias de la app:</strong> configuración de idioma y apariencia</li>
+          </ul>
+          <p>
+            Estos datos nunca salen de tu dispositivo. No los transmitimos, no los
+            sincronizamos en la nube y no tenemos acceso a ellos. Si desinstalas la app,
+            se eliminan definitivamente.
+          </p>
+        </section>
+
+        <section>
+          <h2>4. Notificaciones push (Firebase Cloud Messaging)</h2>
+          <p>
+            The Way usa <strong>Firebase Cloud Messaging (FCM)</strong>, un servicio de
+            Google, para enviarte notificaciones opcionales sobre nuevas reflexiones y
+            contenido. Esto implica:
+          </p>
+          <ul>
+            <li>
+              Firebase asigna un <em>token de dispositivo</em> anónimo a tu instalación de
+              la app. Este token no contiene información personal.
+            </li>
+            <li>
+              El token se envía a nuestros servidores únicamente para poder entregarte
+              notificaciones. No lo usamos para ningún otro propósito.
+            </li>
+            <li>
+              Puedes revocar el permiso de notificaciones en cualquier momento desde los
+              ajustes de tu dispositivo.
+            </li>
+          </ul>
+          <p>
+            Firebase es operado por Google LLC. Su política de privacidad aplica para el
+            procesamiento de tokens de dispositivo:
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+              policies.google.com/privacy
+            </a>.
+          </p>
+        </section>
+
+        <section>
+          <h2>5. Contenido de la app</h2>
+          <p>
+            Todo el contenido bíblico (textos, reflexiones, quizzes, devocionales) está
+            almacenado directamente en la app. No se realizan peticiones a servidores
+            externos para mostrar contenido. La app funciona <strong>completamente sin
+            conexión a internet</strong>, salvo para las notificaciones push descritas arriba.
+          </p>
+        </section>
+
+        <section>
+          <h2>6. Menores de edad</h2>
+          <p>
+            The Way no está dirigida a menores de 13 años y no recopila intencionalmente
+            información de menores. Si eres padre o tutor y crees que tu hijo ha proporcionado
+            información personal, contáctanos y la eliminaremos de inmediato.
+          </p>
+        </section>
+
+        <section>
+          <h2>7. Cambios en esta política</h2>
+          <p>
+            Si modificamos esta política, actualizaremos la fecha indicada al inicio y, si
+            los cambios son significativos, te notificaremos a través de la app. El uso
+            continuado de The Way tras los cambios implica aceptación de la nueva política.
+          </p>
+        </section>
+
+        <section>
+          <h2>8. Contacto</h2>
+          <p>
+            Para preguntas o solicitudes relacionadas con tu privacidad, escríbenos a:
+          </p>
+          <p class="contact-email">
+            <a href="mailto:administracion@shemayisraelsrl.com">administracion@shemayisraelsrl.com</a>
+          </p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+  <Footer t={t} lang={lang} />
+</Layout>
+
+<style>
+  .privacy-page {
+    padding: 80px 0 100px;
+    min-height: 70vh;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .page-header {
+    margin-bottom: 56px;
+    border-bottom: 1px solid var(--stroke-1);
+    padding-bottom: 40px;
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--text-dark);
+    line-height: 1.15;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .meta {
+    font-size: 0.85rem;
+    color: var(--text);
+    opacity: 0.7;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    font-weight: 600;
+  }
+
+  h2 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--text);
+  }
+
+  ul {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  a {
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  a:hover {
+    color: var(--gold-hover);
+  }
+
+  .highlight-box {
+    background: var(--fill-2);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+  }
+
+  .highlight-box p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .contact-email {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+</style>
