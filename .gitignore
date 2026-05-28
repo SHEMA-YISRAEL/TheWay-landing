@@ -1,2 +1,15 @@
-# node.js
+# dependencies
 node_modules/
+
+# build output
+dist/
+
+# astro generated
+.astro/
+
+# skills / agents
+.agents/
+skills-lock.json
+
+# package manager — project uses pnpm, ignore npm lockfile
+package-lock.json
