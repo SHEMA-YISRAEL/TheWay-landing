@@ -1,0 +1,273 @@
+---
+import type { Translations } from '../i18n/translations';
+interface Props { t: Translations }
+const { t } = Astro.props;
+const { donate } = t;
+---
+
+<!-- OCULTO HASTA LANZAMIENTO: quitar clase "hidden" cuando la app esté en las tiendas -->
+<section class="donate" id="donate">
+  <div class="donate-bg" aria-hidden="true">
+    <div class="donate-grain"></div>
+  </div>
+
+  <div class="container">
+    <div class="cross-ornament" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+        <line x1="32" y1="6" x2="32" y2="58" stroke="#d4a043" stroke-width="1.5" stroke-opacity="0.5"/>
+        <line x1="10" y1="22" x2="54" y2="22" stroke="#d4a043" stroke-width="1.5" stroke-opacity="0.5"/>
+        <circle cx="32" cy="32" r="28" stroke="#d4a043" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="3 4"/>
+      </svg>
+    </div>
+
+    <div class="content">
+      <span class="eyebrow reveal">{donate.eyebrow}</span>
+      <h2 class="reveal">{donate.h2[0]}<br /><em>{donate.h2[1]}</em></h2>
+      <p class="subtitle reveal">{donate.subtitle}</p>
+
+      <div class="amounts reveal">
+        {donate.amounts.map((a) => (
+          <a
+            class="amount-btn"
+            href={a.stripeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-amount={a.value}
+          >
+            {a.label}
+          </a>
+        ))}
+      </div>
+
+      <div class="donate-actions reveal">
+        <a href={donate.stripeUrl} target="_blank" rel="noopener noreferrer" class="btn-donate btn-stripe">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.479 9.883c-1.626-.604-2.512-1.067-2.512-1.803 0-.622.511-1.073 1.423-1.073 1.718 0 2.582.95 2.582.95l1.244-2.152s-1.157-1.39-3.73-1.39c-2.808 0-4.619 1.61-4.619 3.734 0 2.36 1.941 3.18 3.625 3.788 1.555.56 2.363 1.034 2.363 1.814 0 .77-.693 1.188-1.658 1.188-1.59 0-2.811-.987-2.811-.987l-1.362 2.088s1.359 1.574 4.134 1.574c2.908 0 4.89-1.535 4.89-3.885 0-2.311-1.97-3.111-3.569-3.846z"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+          </svg>
+          {donate.stripeBtn}
+        </a>
+        <p class="donate-note">{donate.note}</p>
+      </div>
+    </div>
+
+    <div class="verse-side reveal-fade">
+      <div class="verse-card">
+        <div class="verse-ornament" aria-hidden="true">✦</div>
+        <blockquote>
+          <p>{donate.verseCard.quote}</p>
+          <cite>{donate.verseCard.ref}</cite>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  /* Ocultar hasta lanzamiento */
+  .donate.hidden { display: none; }
+
+  .donate {
+    background: var(--dark);
+    padding: 104px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .donate-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .donate-grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px;
+  }
+
+  .cross-ornament {
+    position: absolute;
+    top: 40px;
+    right: 10%;
+    opacity: 0.6;
+  }
+
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 64px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d4a043;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-size: var(--text-display);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: #f5f0e8;
+  }
+
+  h2 em {
+    font-style: italic;
+    color: #d4a043;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(245, 240, 232, 0.65);
+    max-width: 440px;
+  }
+
+  /* Montos sugeridos */
+  .amounts {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .amount-btn {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(245,240,232,0.8);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 9px 20px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .amount-btn:hover {
+    background: rgba(212, 160, 67, 0.15);
+    border-color: #d4a043;
+    color: #d4a043;
+  }
+
+  /* Botón de donación */
+  .donate-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .btn-donate {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: 14px;
+    transition: transform 0.15s var(--ease-out), box-shadow 0.2s ease;
+  }
+
+  .btn-stripe {
+    background: #d4a043;
+    color: var(--dark);
+  }
+
+  .btn-stripe:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212,160,67,0.35);
+  }
+
+  .donate-note {
+    font-size: 0.78rem;
+    color: rgba(245,240,232,0.35);
+    line-height: 1.5;
+    max-width: 340px;
+  }
+
+  /* Tarjeta de versículo */
+  .verse-side {
+    display: flex;
+    justify-content: center;
+    animation-delay: 0.2s;
+  }
+
+  .verse-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(212,160,67,0.2);
+    border-radius: 24px;
+    padding: 40px 36px;
+    max-width: 360px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 60px rgba(212,160,67,0.06);
+  }
+
+  .verse-ornament {
+    font-size: 1.4rem;
+    color: #d4a043;
+    opacity: 0.6;
+  }
+
+  blockquote {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  blockquote p {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #f5f0e8;
+  }
+
+  cite {
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #d4a043;
+  }
+
+  @media (max-width: 860px) {
+    .container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 48px;
+    }
+    .content { align-items: center; }
+    .subtitle { max-width: 100%; }
+    .donate-actions { align-items: center; }
+    .donate-note { text-align: center; }
+  }
+</style>

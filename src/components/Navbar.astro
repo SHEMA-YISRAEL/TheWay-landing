@@ -4,42 +4,95 @@ import type { Translations } from '../i18n/translations';
 interface Props {
   t: Translations;
   lang: 'es' | 'en';
+  esHref?: string;
+  enHref?: string;
 }
-const { t, lang } = Astro.props;
-const altLang = lang === 'es' ? 'en' : 'es';
-const altHref = lang === 'es' ? '/en/' : '/';
-const altLabel = lang === 'es' ? 'EN' : 'ES';
+const { t, lang, esHref = '/', enHref = '/en/' } = Astro.props;
 ---
 
 <header class="navbar">
   <div class="container">
     <a href={lang === 'es' ? '/' : '/en/'} class="logo">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" aria-hidden="true">
+        <g>
+          <polygon fill="currentColor" points="516.53 464.86 483.69 465.84 483.58 385.63 433.53 385.49 433.55 352.96 483.51 352.83 483.8 299.7 516.35 299.45 516.73 352.68 566.72 353.18 566.48 385.46 516.64 385.72 516.53 464.86"/>
+          <path fill="currentColor" d="M375.81,442.22c-13.12.66-26.36.13-40.77-1.1l-85.74-7.34c-.37-3.68.12-8.19,1.22-12.16l108.43,16.72,16.86,3.88Z"/>
+          <path fill="currentColor" d="M428.64,288.17l-22.06-49.89c.89-3.47,8.02-6.51,11.39-4.8l30.99,93.38c-9.35-10.69-13.96-24.3-20.32-38.69Z"/>
+          <path fill="currentColor" d="M717.17,357.69c-30.09,13.24-57.87,24.6-90.2,34.59,26.76-16.73,55.65-30.07,85.23-44.96,2.88-1.45,7.93,9.07,4.97,10.37Z"/>
+          <path fill="currentColor" d="M385.11,395.87c-8.28-2.17-15.4-4.39-23.38-7.54l-78.89-31.18c-2.6-1.03,3.13-11.37,5.77-10.06l73.57,36.28,22.93,12.51Z"/>
+          <path fill="currentColor" d="M672.07,439.68c-9.46.69-17.67.81-25.22.43l31.32-6.26,71.66-11.97c1.26,2.97,1.72,7.61,1.32,12.04l-79.08,5.76Z"/>
+          <path fill="currentColor" d="M594.25,237.77c-12.37,25.89-22.78,49.17-36.35,73.42,5.31-27.49,15.01-51.2,23.17-77.81,3.94-.35,7.99,1.11,13.18,4.39Z"/>
+          <path fill="currentColor" d="M400.6,347.64c-23.19-18.36-42.36-38.97-63.92-59.67-2.29-2.2,4.44-9.57,7.59-9.14,18.72,23.23,38.37,42.83,56.33,68.81Z"/>
+          <path fill="currentColor" d="M662.8,289.46c-18.55,15.3-30.96,32.11-51.36,45.97,10.44-19.73,29.02-36.91,42.82-55.08,1.18-1.55,5.46,0,6.67,1.02,1.61,1.35,3.6,6.65,1.87,8.08Z"/>
+          <path fill="currentColor" d="M502.43,276.29c-.31,4.96-.77,8.28-3.32,10.33l-5.09-71.06c4.1-1.03,8.97-1.01,12.23.07l-3.81,60.66Z"/>
+        </g>
+        <g>
+          <path fill="currentColor" d="M389.01,580.51c9.77,7.09,9.81,19.38,1.7,27.34-8.69,8.53-20.05,14.35-31.94,18.42-21.22,7.27-41.33,14.55-62.05,23.11-20.19,9.37-37.43,20.38-56.87,33.97l-.07-164.97c65.72-23.87,132.23-38.02,200.85-43.03,7.74-.56,14.62.07,21.02,1.2-29.19,8.33-114.44,32.39-108.58,70.01.84,5.4,6.06,12.24,11.58,16.25l24.37,17.68Z"/>
+          <path fill="currentColor" d="M741.11,670.57c-18.76-89.21-101.5-118.83-182.04-134.01-7.94-1.5-15.84-3.74-23.41-5.85-7.45-3.64-9.42-10.2-6-17.84,12.31-14.83,26.21-28.02,43.62-37.77,64.04,6.94,124.94,21.54,186.26,42.86l-.09,164.65c-7.4-4.24-12.18-7.54-18.35-12.03Z"/>
+          <path fill="currentColor" d="M500.93,675.4c-15.78-11.51-31.05-18.65-50.07-25.4,9.52-7.1,18.49-13.24,26.19-20.87,10.68-10.59,10.18-26.3-.36-37.13-18.25-18.74-42.69-23.54-63.41-39.96-9.47-7.51-9.16-20.33-.49-28.27,26.31-24.08,90.17-42.85,127.01-46.21-5.94,3.74-12.03,6.19-18.67,8.56-15.15,5.41-43.29,19.44-42.55,36.91.64,15.06,34.23,25.84,47.68,30.32,21.57,7.18,41.27,16.37,59.51,29.87,19.59,15.16,34.6,34.63,41.53,60.34-45.28-2.5-88.56,5.69-126.37,31.83Z"/>
+          <path fill="currentColor" d="M493.37,741.68c-80.49-43.95-154.67-35.43-245.48-14.51,9.8-19.6,21.07-36.04,33.06-53.36,44.89-19.98,187.8-26.67,213.09,24.57l-.66,43.3Z"/>
+          <path fill="currentColor" d="M750.57,726.65c-83.42-22.19-162.87-25.96-243.71,14.81l-.9-37.53c-.47-19.74,29.13-30.56,45.39-34.94,52.52-14.16,107.2-13.06,159.38,2.29,3.88,1.14,8.12,4.24,11.08,6.55l28.76,48.82Z"/>
+          <path fill="currentColor" d="M750.96,694.5c23.9,22.03,42.38,48.05,60.13,75.49-38.86-8.96-72.13-17.01-108.37-22.3-71.51-8.87-141.25-5.38-202.82,37.5-34.05-23.82-72.33-36.48-113.55-40.42-31.68-2.77-62.02-.97-93.72,3.16-35.05,5.38-67.65,13.8-103.71,22.17,19.09-29.25,36.99-54.75,61.39-78.07-7.79,20.75-20.14,37.29-28.76,55.9,84.15-23.18,205.1-35.7,278.17,20.92,72.33-57.21,199.49-41.98,278.9-21.2-9.12-19.12-20.41-33.03-27.66-53.14Z"/>
+        </g>
       </svg>
-      <span>The Way</span>
+      <span class="logo-name">BibleShep</span>
     </a>
 
     <nav class="nav-links" aria-label="Main navigation">
       <a href="#features">{t.navbar.features}</a>
       <a href="#scripture">{t.navbar.scripture}</a>
-      <a href="#download">{t.navbar.download}</a>
     </nav>
 
     <div class="nav-right">
-      <a href={altHref} class="lang-toggle" aria-label={`Switch to ${altLang}`}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="2" y1="12" x2="22" y2="12"/>
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-        </svg>
-        {altLabel}
-      </a>
+      <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+        <a href={esHref} class={`lang-opt${lang === 'es' ? ' active' : ''}`} aria-current={lang === 'es' ? 'page' : undefined}>ES</a>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <a href={enHref} class={`lang-opt${lang === 'en' ? ' active' : ''}`} aria-current={lang === 'en' ? 'page' : undefined}>EN</a>
+      </div>
       <a href="#download" class="cta-btn">{t.navbar.cta}</a>
+      <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
     </div>
   </div>
+
+  <!-- Menú móvil dentro del header para heredar z-index y sticky -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav>
+      <a href="#features" class="mobile-link">{t.navbar.features}</a>
+      <a href="#scripture" class="mobile-link">{t.navbar.scripture}</a>
+      <a href="#download" class="mobile-link">{t.navbar.cta}</a>
+      <div class="mobile-lang">
+        <a href={esHref} class={lang === 'es' ? 'active' : ''}>ES</a>
+        <span>/</span>
+        <a href={enHref} class={lang === 'en' ? 'active' : ''}>EN</a>
+      </div>
+    </nav>
+  </div>
 </header>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+    menu?.setAttribute('aria-hidden', String(!open));
+  });
+
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.remove('open');
+      btn?.setAttribute('aria-expanded', 'false');
+      menu?.setAttribute('aria-hidden', 'true');
+    });
+  });
+</script>
 
 <style>
   .navbar {
@@ -68,7 +121,7 @@ const altLabel = lang === 'es' ? 'EN' : 'ES';
     align-items: center;
     gap: 8px;
     text-decoration: none;
-    color: var(--text-dark);
+    color: var(--gold);
     font-family: var(--font-serif);
     font-weight: 700;
     font-size: 1.2rem;
@@ -77,7 +130,12 @@ const altLabel = lang === 'es' ? 'EN' : 'ES';
   }
 
   .logo svg {
-    color: var(--gold);
+    width: 48px;
+    height: 48px;
+  }
+
+  .logo-name {
+    color: var(--text-dark);
   }
 
   .nav-links {
@@ -96,9 +154,7 @@ const altLabel = lang === 'es' ? 'EN' : 'ES';
     transition: color 0.2s ease;
   }
 
-  .nav-links a:hover {
-    color: var(--gold);
-  }
+  .nav-links a:hover { color: var(--gold); }
 
   .nav-right {
     display: flex;
@@ -110,22 +166,33 @@ const altLabel = lang === 'es' ? 'EN' : 'ES';
   .lang-toggle {
     display: flex;
     align-items: center;
-    gap: 5px;
-    text-decoration: none;
-    color: var(--text);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    padding: 6px 10px;
+    gap: 4px;
+    padding: 5px 10px;
     border-radius: 8px;
     border: 1px solid var(--stroke-1);
-    background: transparent;
-    transition: border-color 0.2s ease, color 0.2s ease;
   }
 
-  .lang-toggle:hover {
-    border-color: var(--gold);
+  .lang-opt {
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    opacity: 0.45;
+    transition: opacity 0.2s ease, color 0.2s ease;
+  }
+
+  .lang-opt:hover { opacity: 0.8; }
+
+  .lang-opt.active {
     color: var(--gold);
+    opacity: 1;
+  }
+
+  .lang-sep {
+    font-size: 0.72rem;
+    color: var(--text);
+    opacity: 0.25;
   }
 
   .cta-btn {
@@ -146,9 +213,78 @@ const altLabel = lang === 'es' ? 'EN' : 'ES';
     transform: translateY(-1px);
   }
 
-  @media (max-width: 640px) {
-    .nav-links {
-      display: none;
-    }
+  /* Hamburguesa — oculta en desktop */
+  .menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-dark);
+    padding: 4px;
+    line-height: 0;
+  }
+
+  /* Menú móvil — oculto siempre en desktop */
+  .mobile-menu {
+    display: none;
+    padding: 8px 24px 20px;
+    border-top: 1px solid var(--stroke-1);
+  }
+
+  .mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--stroke-1);
+    transition: color 0.2s ease;
+  }
+
+  .mobile-link:last-of-type {
+    border-bottom: none;
+  }
+
+  .mobile-link:hover { color: var(--gold); }
+
+  .mobile-lang {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding-top: 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .mobile-lang a {
+    text-decoration: none;
+    color: var(--text);
+    opacity: 0.45;
+  }
+
+  .mobile-lang span { color: var(--text); opacity: 0.25; }
+
+  .mobile-lang a.active {
+    color: var(--gold);
+    opacity: 1;
+  }
+
+  /* Tablet y móvil */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .lang-toggle { display: none; }
+    .cta-btn { display: none; }
+    .menu-btn { display: block; }
+
+    .mobile-menu.open { display: block; }
+  }
+
+  @media (max-width: 400px) {
+    .logo-name { display: none; }
   }
 </style>

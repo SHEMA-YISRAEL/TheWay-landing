@@ -14,7 +14,7 @@ There are no tests or linting scripts configured.
 
 ## Architecture
 
-This is an **Astro 6** static landing page for "The Way" — a Bible reading app currently in private beta.
+This is an **Astro 6** static landing page for "BibleShep" — a Bible reading app currently in private beta.
 
 ### i18n pattern
 

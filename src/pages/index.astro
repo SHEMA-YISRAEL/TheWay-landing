@@ -5,6 +5,8 @@ import Hero from '../components/Hero.astro';
 import Features from '../components/Features.astro';
 import Scripture from '../components/Scripture.astro';
 import Download from '../components/Download.astro';
+import Donate from '../components/Donate.astro';
+import FAQ from '../components/FAQ.astro';
 import Footer from '../components/Footer.astro';
 import { es } from '../i18n/translations';
 
@@ -19,6 +21,8 @@ const lang = 'es' as const;
     <Features t={t} />
     <Scripture t={t} />
     <Download t={t} />
+    <Donate t={t} />
+    <FAQ t={t} />
   </main>
   <Footer t={t} lang={lang} />
 </Layout>

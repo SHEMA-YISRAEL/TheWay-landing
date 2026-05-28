@@ -1,0 +1,244 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { es } from '../i18n/translations';
+
+const t = es;
+const lang = 'es' as const;
+const lastUpdated = '28 de mayo de 2026';
+---
+
+<Layout
+  title="Términos de Uso — BibleShep"
+  description="Términos y condiciones de uso de BibleShep. Conoce las reglas que rigen el uso de nuestra aplicación bíblica."
+  lang={lang}
+>
+  <Navbar t={t} lang={lang} esHref="/terms" enHref="/en/terms" />
+  <main class="terms-page">
+    <div class="container">
+      <header class="page-header">
+        <p class="eyebrow">Legal</p>
+        <h1>Términos de <em>Uso</em></h1>
+        <p class="meta">Última actualización: {lastUpdated}</p>
+      </header>
+
+      <div class="content">
+
+        <section>
+          <h2>1. Aceptación de los términos</h2>
+          <p>
+            Al descargar, instalar o usar la aplicación <strong>BibleShep</strong> (en adelante, "la App"),
+            aceptas quedar vinculado por estos Términos de Uso. Si no estás de acuerdo con alguno
+            de estos términos, no uses la App.
+          </p>
+        </section>
+
+        <section>
+          <h2>2. Descripción del servicio</h2>
+          <p>
+            BibleShep es una aplicación bíblica que ofrece planes de lectura guiados, devocionales
+            diarios y herramientas para el estudio de la Escritura. Es un ministerio cristiano sin
+            fines de lucro, distribuido de forma gratuita.
+          </p>
+        </section>
+
+        <section>
+          <h2>3. Uso aceptable</h2>
+          <p>Al usar BibleShep te comprometes a:</p>
+          <ul>
+            <li>Usar la App únicamente para fines personales, espirituales y no comerciales.</li>
+            <li>No reproducir, redistribuir ni comercializar el contenido de la App sin autorización escrita.</li>
+            <li>No intentar descompilar, modificar o realizar ingeniería inversa sobre el software.</li>
+            <li>No usar la App de forma que infrinja leyes bolivianas o internacionales aplicables.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>4. Propiedad intelectual</h2>
+          <p>
+            Todo el contenido original de BibleShep — incluyendo reflexiones, devocionales, planes de
+            lectura y diseño — es propiedad de <strong>SHEMA YISRAEL SRL</strong> y está protegido por
+            las leyes de propiedad intelectual del Estado Plurinacional de Bolivia y convenios
+            internacionales aplicables.
+          </p>
+          <p>
+            Los textos bíblicos incluidos en la App pertenecen a sus respectivos titulares y se usan
+            conforme a los términos de licencia de cada traducción.
+          </p>
+        </section>
+
+        <section>
+          <h2>5. Contenido de terceros</h2>
+          <p>
+            La App puede incluir versículos de traducciones bíblicas bajo licencia (NVI, RVR1960, NIV,
+            ESV, entre otras). Cada traducción está sujeta a sus propios términos de uso. BibleShep
+            no reclama titularidad sobre dichos textos.
+          </p>
+        </section>
+
+        <section>
+          <h2>6. Donaciones</h2>
+          <p>
+            Las donaciones realizadas a través de la App son voluntarias y no reembolsables. Se
+            destinan exclusivamente al mantenimiento, desarrollo y distribución gratuita de BibleShep.
+            No constituyen una compra de bienes ni servicios.
+          </p>
+        </section>
+
+        <section>
+          <h2>7. Exención de garantías</h2>
+          <p>
+            BibleShep se proporciona "tal cual", sin garantías de ningún tipo, expresas o implícitas.
+            No garantizamos que la App esté libre de errores, interrupciones o que sea adecuada para
+            un propósito específico. El uso de la App es bajo tu propia responsabilidad.
+          </p>
+        </section>
+
+        <section>
+          <h2>8. Limitación de responsabilidad</h2>
+          <p>
+            En la máxima medida permitida por la ley boliviana, SHEMA YISRAEL SRL no será responsable
+            por daños directos, indirectos, incidentales o consecuentes derivados del uso o
+            imposibilidad de uso de la App, incluso si se ha advertido de la posibilidad de dichos daños.
+          </p>
+        </section>
+
+        <section>
+          <h2>9. Modificaciones</h2>
+          <p>
+            Nos reservamos el derecho de modificar estos Términos en cualquier momento. Los cambios
+            significativos serán notificados a través de la App. El uso continuado de BibleShep tras
+            la publicación de los cambios implica la aceptación de los nuevos términos.
+          </p>
+        </section>
+
+        <section>
+          <h2>10. Ley aplicable y jurisdicción</h2>
+          <p>
+            Estos Términos se rigen por las leyes del <strong>Estado Plurinacional de Bolivia</strong>.
+            Cualquier disputa derivada del uso de la App se someterá a la jurisdicción de los
+            tribunales competentes de la ciudad de <strong>Santa Cruz de la Sierra, Bolivia</strong>,
+            salvo que la ley aplicable exija otra jurisdicción.
+          </p>
+        </section>
+
+        <section>
+          <h2>11. Contacto</h2>
+          <p>Para consultas sobre estos Términos de Uso, escríbenos a:</p>
+          <p class="contact-email">
+            <a href="mailto:administracion@shemayisraelsrl.com">administracion@shemayisraelsrl.com</a>
+          </p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+  <Footer t={t} lang={lang} />
+</Layout>
+
+<style>
+  .terms-page {
+    padding: 80px 0 100px;
+    min-height: 70vh;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .page-header {
+    margin-bottom: 56px;
+    border-bottom: 1px solid var(--stroke-1);
+    padding-bottom: 40px;
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--text-dark);
+    line-height: 1.15;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .meta {
+    font-size: 0.85rem;
+    color: var(--text);
+    opacity: 0.7;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    font-weight: 600;
+  }
+
+  h2 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--text);
+  }
+
+  ul {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  a {
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  a:hover {
+    color: var(--gold-hover);
+  }
+
+  .contact-email {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+</style>

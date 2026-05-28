@@ -5,7 +5,7 @@ interface Props {
   lang?: 'es' | 'en';
 }
 const {
-  title = 'The Way — Tu Camino a través de la Escritura',
+  title = 'BibleShep — Tu Camino a través de la Escritura',
   description = 'Planes de lectura guiados, versículos diarios y devocionales profundos — todo diseñado para profundizar tu caminar con Dios.',
   lang = 'es',
 } = Astro.props;
@@ -48,8 +48,21 @@ const {
         --stroke-3: #cfdbd2;
         --gold: #b28436;
         --gold-hover: #9a7030;
+        --gold-muted: rgba(178, 132, 54, 0.12);
+        --gold-glow: rgba(178, 132, 54, 0.25);
+        --dark: #1e1a15;
+        --dark-2: #2a2520;
         --font-serif: 'Playfair Display', Georgia, serif;
         --font-sans: 'Inter', system-ui, sans-serif;
+
+        /* Typography scale */
+        --text-hero: clamp(2.8rem, 6vw, 4.2rem);
+        --text-display: clamp(2rem, 4vw, 3rem);
+        --text-heading: clamp(1.4rem, 2.5vw, 2rem);
+
+        /* Transitions */
+        --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       html {
@@ -73,6 +86,42 @@ const {
 
       a {
         color: inherit;
+      }
+
+      /* Reveal animations */
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(24px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+
+      @keyframes scaleIn {
+        from { opacity: 0; transform: scale(0.96); }
+        to   { opacity: 1; transform: scale(1); }
+      }
+
+      .reveal {
+        opacity: 0;
+        animation: fadeInUp 0.7s var(--ease-out) forwards;
+      }
+
+      .reveal-fade {
+        opacity: 0;
+        animation: fadeIn 0.8s var(--ease-out) forwards;
+      }
+
+      .reveal:nth-child(1), .reveal-fade:nth-child(1) { animation-delay: 0.05s; }
+      .reveal:nth-child(2), .reveal-fade:nth-child(2) { animation-delay: 0.15s; }
+      .reveal:nth-child(3), .reveal-fade:nth-child(3) { animation-delay: 0.25s; }
+      .reveal:nth-child(4), .reveal-fade:nth-child(4) { animation-delay: 0.35s; }
+
+      /* Reducir movimiento si el usuario lo prefiere */
+      @media (prefers-reduced-motion: reduce) {
+        .reveal, .reveal-fade { animation: none; opacity: 1; }
       }
     </style>
   </head>
