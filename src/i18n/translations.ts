@@ -6,6 +6,7 @@ export interface Translations {
   navbar: {
     features: string;
     scripture: string;
+    donate: string;
     cta: string;
   };
   hero: {
@@ -87,6 +88,7 @@ export const es: Translations = {
   navbar: {
     features: "Características",
     scripture: "Escritura",
+    donate: "Donaciones",
     cta: "Próximamente",
   },
   hero: {
@@ -270,6 +272,7 @@ export const en: Translations = {
   navbar: {
     features: "Features",
     scripture: "Scripture",
+    donate: "Donate",
     cta: "Coming soon",
   },
   hero: {

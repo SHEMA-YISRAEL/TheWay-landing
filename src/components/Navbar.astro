@@ -41,6 +41,7 @@ const { t, lang, esHref = '/', enHref = '/en/' } = Astro.props;
     <nav class="nav-links" aria-label="Main navigation">
       <a href="#features">{t.navbar.features}</a>
       <a href="#scripture">{t.navbar.scripture}</a>
+      <a href="#donate">{t.navbar.donate}</a>
     </nav>
 
     <div class="nav-right">
@@ -65,6 +66,7 @@ const { t, lang, esHref = '/', enHref = '/en/' } = Astro.props;
     <nav>
       <a href="#features" class="mobile-link">{t.navbar.features}</a>
       <a href="#scripture" class="mobile-link">{t.navbar.scripture}</a>
+      <a href="#donate" class="mobile-link">{t.navbar.donate}</a>
       <a href="#download" class="mobile-link">{t.navbar.cta}</a>
       <div class="mobile-lang">
         <a href={esHref} class={lang === 'es' ? 'active' : ''}>ES</a>
