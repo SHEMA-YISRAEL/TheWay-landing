@@ -89,10 +89,10 @@ export const es: Translations = {
     features: "Características",
     scripture: "Escritura",
     donate: "Donaciones",
-    cta: "Próximamente",
+    cta: "Descargar",
   },
   hero: {
-    badge: "Beta privada · iOS & Android",
+    badge: "Disponible en Android · iOS próximamente",
     h1: ["Encuentra tu camino", "a través de la Escritura"],
     subtitle:
       "Planes de lectura guiados, devocionales diarios y caminos curados a través de la Palabra — diseñado para creyentes que quieren ir más profundo.",
@@ -102,8 +102,8 @@ export const es: Translations = {
       success: "¡Listo! Te avisamos cuando lancemos.",
     },
     appStore: { label: "Próximamente en", platform: "App Store" },
-    googlePlay: { label: "Próximamente en", platform: "Google Play" },
-    socialProof: "Cupos limitados en la beta",
+    googlePlay: { label: "Descárgalo en", platform: "Google Play" },
+    socialProof: "Android disponible · iOS muy pronto",
     phone: {
       dayLabel: "Camino de Hoy · Día 24",
       chapter: "Juan 3 · NVI",
@@ -165,12 +165,12 @@ export const es: Translations = {
       "BibleShep nació de este versículo — la convicción de que la Escritura no es solo un libro, sino una guía viva para cada paso del camino.",
   },
   download: {
-    eyebrow: "Próximamente",
-    h2: ["BibleShep llega", "a iOS & Android"],
+    eyebrow: "Descarga la app",
+    h2: ["BibleShep ya está", "en Android"],
     subtitle:
-      "Estamos preparando el lanzamiento. Únete a la lista para ser el primero en acceder.",
+      "Disponible ahora en Google Play. La versión iOS llega próximamente.",
     appStore: { label: "Próximamente en", platform: "App Store" },
-    googlePlay: { label: "Próximamente en", platform: "Google Play" },
+    googlePlay: { label: "Descárgalo en", platform: "Google Play" },
     note: "",
     verseCard: {
       quote: "«Yo soy el camino, la verdad y la vida.»",
@@ -219,7 +219,7 @@ export const es: Translations = {
     items: [
       {
         q: "¿Cuándo estará disponible la app?",
-        a: "Estamos en beta privada y preparando el lanzamiento para iOS y Android. Únete a la lista de espera para ser de los primeros en acceder.",
+        a: "La app ya está disponible en Google Play para Android. La versión para iOS está en desarrollo y llegará próximamente.",
       },
       {
         q: "¿La app es gratuita?",
@@ -248,7 +248,7 @@ export const es: Translations = {
       app: {
         title: "App",
         features: "Características",
-        download: "Próximamente",
+        download: "Descargar",
         faq: "Preguntas frecuentes",
       },
       legal: {
@@ -273,10 +273,10 @@ export const en: Translations = {
     features: "Features",
     scripture: "Scripture",
     donate: "Donate",
-    cta: "Coming soon",
+    cta: "Download",
   },
   hero: {
-    badge: "Private beta · iOS & Android",
+    badge: "Available on Android · iOS coming soon",
     h1: ["Find your path", "through Scripture"],
     subtitle:
       "Guided reading journeys, daily devotionals, and curated paths through God’s Word — designed for believers who want to go deeper.",
@@ -286,8 +286,8 @@ export const en: Translations = {
       success: "You’re in! We’ll notify you at launch.",
     },
     appStore: { label: "Coming soon on", platform: "App Store" },
-    googlePlay: { label: "Coming soon on", platform: "Google Play" },
-    socialProof: "Limited beta spots available",
+    googlePlay: { label: "Get it on", platform: "Google Play" },
+    socialProof: "Android available · iOS coming soon",
     phone: {
       dayLabel: "Today's Path · Day 24",
       chapter: "John 3 · NIV",
@@ -346,12 +346,12 @@ export const en: Translations = {
       "BibleShep was built on this verse — the belief that Scripture is not just a book, but a living guide for every step of the journey.",
   },
   download: {
-    eyebrow: "Coming soon",
-    h2: ["BibleShep is coming", "to iOS & Android"],
+    eyebrow: "Download the app",
+    h2: ["BibleShep is now", "on Android"],
     subtitle:
-      "We’re preparing the launch. Join the waitlist to be first in line.",
+      "Available now on Google Play. iOS version coming soon.",
     appStore: { label: "Coming soon on", platform: "App Store" },
-    googlePlay: { label: "Coming soon on", platform: "Google Play" },
+    googlePlay: { label: "Get it on", platform: "Google Play" },
     note: "",
     verseCard: {
       quote: '"I am the way, the truth, and the life."',
@@ -400,7 +400,7 @@ export const en: Translations = {
     items: [
       {
         q: "When will the app be available?",
-        a: "We're in private beta and preparing the launch for iOS and Android. Join the waitlist to be among the first to access it.",
+        a: "The app is available now on Google Play for Android. The iOS version is in development and coming soon.",
       },
       {
         q: "Is the app free?",
@@ -426,7 +426,7 @@ export const en: Translations = {
       app: {
         title: "App",
         features: "Features",
-        download: "Coming soon",
+        download: "Download",
         faq: "FAQ",
       },
       legal: {
